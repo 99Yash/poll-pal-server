@@ -22,12 +22,9 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 
-mongoose
-  .connect(keys.mongoURI)
-  .then(() => {
-    const port = process.env.PORT || 5000;
-    app.listen(port, () => {
-      console.log(`Server is running on port ${port}`);
-    });
-  })
-  .catch((err) => console.log(err));
+app.listen(5000, async () => {
+  await mongoose.connect('mongodb://127.0.0.1:27017', {
+    dbName: 'poll-pal',
+  });
+  console.log('Server is running on port 5000');
+});
