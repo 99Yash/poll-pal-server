@@ -1,6 +1,10 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Header from './components/Header';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUser, setCurrentUser } from './reducers/authSlice';
+import Landing from './components/Landing';
 
 const Dashboard = () => {
   return <h2>Dashboard</h2>;
@@ -8,13 +12,21 @@ const Dashboard = () => {
 const SurveyNew = () => {
   return <h2>SurveyNew</h2>;
 };
-const Landing = () => {
-  return <h2>Landing</h2>;
-};
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  const currentUser = useSelector((state) => state.auth.currentUser);
+  useEffect(() => {
+    if (!currentUser) {
+      dispatch(fetchUser());
+      setCurrentUser(currentUser);
+    }
+    console.log(currentUser);
+  }, [dispatch, currentUser]);
+
   return (
-    <div className="bg-slate-700 h-screen text-slate-200 ">
+    <div className="bg-slate-800 h-screen text-slate-200 ">
       <BrowserRouter>
         <Header />
         <Routes>

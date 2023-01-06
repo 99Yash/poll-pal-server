@@ -7,6 +7,10 @@ import { Provider } from 'react-redux';
 import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+store.dispatch({ type: 'auth/fetchUser' });
+console.log('user', store.getState().auth.currentUser);
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
