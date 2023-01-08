@@ -39,7 +39,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(5000, async () => {
+app.listen(process.env.PORT || 5000, async () => {
   await mongoose.connect('mongodb://127.0.0.1:27017', {
     dbName: 'poll-pal',
   });
