@@ -6,6 +6,7 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 
 const app = express();
