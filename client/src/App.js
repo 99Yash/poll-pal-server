@@ -5,13 +5,8 @@ import Header from './components/Header';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUser, setCurrentUser } from './reducers/authSlice';
 import Landing from './components/Landing';
-
-const Dashboard = () => {
-  return <h2>Dashboard</h2>;
-};
-const SurveyNew = () => {
-  return <h2>SurveyNew</h2>;
-};
+import Dashboard from './components/Dashboard';
+import SurveyNew from './components/surveys/SurveyNew';
 
 const App = () => {
   const dispatch = useDispatch();

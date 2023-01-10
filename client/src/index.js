@@ -5,6 +5,9 @@ import reportWebVitals from './reportWebVitals';
 import { store } from './reducers/index';
 import { Provider } from 'react-redux';
 import './index.css';
+import axios from 'axios';
+
+window.axios = axios;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
