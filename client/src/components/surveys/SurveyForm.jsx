@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import SurveyField from './SurveyField';
 import validateEmails from '../../utils/validateEmails';
 
-const SurveyForm = () => {
+const SurveyForm = (props) => {
   const dispatch = useDispatch();
 
   const form = {
@@ -41,7 +41,7 @@ const SurveyForm = () => {
 
   return (
     <div>
-      <form>
+      <form onSubmit={props.onSubmit}>
         <div>
           {/* <label htmlFor="title">Survey Title</label>
           <input
@@ -63,6 +63,7 @@ const SurveyForm = () => {
             name="emails"
             onChange={changeInputHandler}
           />
+          <button type="submit">Submit</button>
         </div>
       </form>
     </div>
